@@ -1,0 +1,18 @@
+clear all;
+I=imread('lean.jpg');
+a=90;b=90;
+J1=translation(I,a,b);
+subplot(221);imshow(J1);axis on;
+title('右下平移图像');
+a=-90;b=-90;
+J2=translation(I,a,b);
+subplot(222);imshow(J2);axis on;
+title('左上平移图像');
+a=90;b=90;
+J3=translation(I,a,b);
+subplot(223);imshow(J1);axis on;
+title('右上平移图像');
+a=-90;b=90;
+J4=translation(I,a,b);
+subplot(224);imshow(J2);axis on;
+title('左下平移图像');

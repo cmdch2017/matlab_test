@@ -1,0 +1,207 @@
+2-4
+t=-3*pi:pi/100:3*pi;
+ft=sin(0.1*pi*t);%定义函数
+subplot(3,3,1);%位置
+plot(t,ft) ;%画曲线
+title('0.1pi'); %标题
+ft1=sin(0.5*pi*t); 
+subplot(2,3,2); 
+plot(t,ft1); title('0.5pi'); 
+ft2=sin(0.9*pi*t); 
+subplot(2,3,3); 
+plot(t,ft2); title('0.9pi'); 
+ft3=sin(1.1*pi*t);
+subplot(2,3,4); 
+plot(t,ft3);title('1.1pi'); 
+ ft4=sin(1.5*pi*t); 
+subplot(2,3,5); 
+plot(t,ft4);title('1.5pi'); 
+ft5=sin(1.9*pi*t); 
+subplot(2,3,6);
+ plot(t,ft5);title('1.9pi'); 
+%结论：Ω0越大，频率越大，图像越紧密
+
+2-7利用matlab产生和播放声音信号
+fs=60000; %频率为 262Hz 的声音极其波形
+f1=262;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs)
+plot(t,y1);% 频率为 262Hz
+title('频率262');
+
+fs=60000; %频率为 294Hz 的声音极其波形
+f1=294;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1);% 频率为 294Hz的正弦信号声音波形
+title('频率294');
+
+fs=60000; %频率为 330Hz 的声音极其波形
+f1=330;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1); %频率为 330Hz的正弦信号声音波形
+title('频率330');
+
+fs=60000; %频率为 349Hz 的声音极其波形
+f1=349;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1); %频率为 349Hz的正弦信号声音波形
+title('频率349');
+
+fs=60000; %频率为 392Hz 的声音极其波形
+f1=392;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1) ;%频率为 392Hz的正弦信号声音波形
+title('频率392');
+
+fs=60000; %频率为 440Hz 的声音极其波形
+f1=440;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1);% 频率为 440Hz的正弦信号声音波形
+title('频率440');
+
+fs=60000; %频率为 494Hz 的声音极其波形
+f1=494;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1) ;%频率为 494Hz的正弦信号声音波形
+title('频率494');
+
+fs=60000; %频率为 524Hz 的声音极其波形
+f1=524;
+t=0:1/fs:0.02;
+y1=sin(2*pi*f1*t);
+sound(y1,fs);
+plot(t,y1); %频率为 524Hz的正弦信号声音波形
+title('频率524');
+
+%结论： 当正弦信号频率增大时，周期变短，音调变高
+
+(2)
+f1=262;f2=294;f3=330;f4=262;f5=262;f6=294;f7=330;f8=262;
+f9=330;f10=349;f11=392;f12=392;f13=330;f14=349;f15=392;
+f16=392;
+fs=44100;
+t=0:1/fs:0.5;
+y1=sin(2*pi*f1*t);
+y2=sin(2*pi*f2*t);
+y3=sin(2*pi*f3*t);
+y4=sin(2*pi*f4*t);
+y5=sin(2*pi*f5*t);
+y6=sin(2*pi*f6*t);
+y7=sin(2*pi*f7*t);
+y8=sin(2*pi*f8*t);
+y9=sin(2*pi*f9*t);
+y10=sin(2*pi*f10*t);
+y11=sin(2*pi*f11*t);
+y12=sin(2*pi*f12*t);
+y13=sin(2*pi*f13*t);
+y14=sin(2*pi*f14*t);
+y15=sin(2*pi*f15*t);
+y16=sin(2*pi*f16*t);
+y=[y1 y2 y3 y4 y5 y6 y7 y8 y9 y10 y11 y12 y13 y14 y15 y16];
+sound(y,fs) ;
+仿真结果： 儿歌《两只老虎》的曲片段
+结果分析： 不同频率的无意义的信号在时域的叠加，形成了有意义的信号
+
+(3)
+clear all;%清空之前的信号防止时域叠加
+f1=262;f2=294;f3=330;f4=262;f5=262;f6=294;f7=330;f8=262;
+f9=330;f10=349;f11=392;f12=392;f13=330;f14=349;f15=392;
+f16=392;
+fs=44100;
+t=0:1/fs:0.5;
+y1=sin(2*pi*f1*t);
+y2=sin(2*pi*f2*t);
+y3=sin(2*pi*f3*t);
+y4=sin(2*pi*f4*t);
+y5=sin(2*pi*f5*t);
+y6=sin(2*pi*f6*t);
+y7=sin(2*pi*f7*t);
+y8=sin(2*pi*f8*t);
+y9=sin(2*pi*f9*t);
+y10=sin(2*pi*f10*t);
+y11=sin(2*pi*f11*t);
+y12=sin(2*pi*f12*t);
+y13=sin(2*pi*f13*t);
+y14=sin(2*pi*f14*t);
+y15=sin(2*pi*f15*t);
+y16=sin(2*pi*f16*t);
+y=[y1 y2 y3 y4 y5 y6 y7 y8 y9 y10 y11 y12 y13 y14 y15 y16];
+time=4;
+Fs=44100;
+[y,Fs]=audioread( '1.wav' );
+p=audioplayer(y,fs);
+play(p);
+t=(1:length(y))/Fs;
+plot(t,y, 's' ) ;
+结果分析：
+1．单位时间内时域图密集的部分，信号声音更加尖锐； 2. 单位时间内时域图稀疏的部分，信号声音更加低沉；
+
+(3)
+实现思路：
+1. 把时间变为原来的 a倍，即能压缩（ a 大于 1）或延展（ a 小于 1）为原来的 a倍。 
+2. 直接在原信号前乘以 a，即能使幅度放大（ a大于 1）或缩小（ a小于 1） 
+3. 使用 flipud 函数，实现信号翻转。
+
+time=4;
+Fs=44100;
+[y,Fs]=audioread( '1.wav' );
+subplot(2,1,1);
+plot(t,y);
+y1=y(1:2:end);
+p=audioplayer(y1,fs);
+play(p);
+t=(1:length(y1))/Fs;
+subplot(2,1,2);
+plot(t,y1);
+title('原信号的 2 倍压缩'); 
+结果分析：原信号压缩两倍后，音频效果速度变为原来的两倍，声音也变得更加尖锐。
+time=4;
+Fs=44100;
+[y,Fs]=audioread( '1.wav' );
+y1=y(1:1/2:end/2);
+p=audioplayer(y1,fs);
+play(p);
+t=(1:length(y1))/Fs;
+plot(t,y1, 's' ) ;
+结果分析：原信号扩展两倍后，音频效果速度变为原来的0.5，声音也变得更钝。
+
+time=4;
+Fs=44100;
+[y,Fs]=audioread( '1.wav' );
+y1=y(1:1:end/2);
+p=audioplayer(y1,fs);
+play(p);
+t=(1:length(y1))/Fs;
+plot(2*t,y1, 's' ) ;
+结果分析:幅度减大,响度减大
+time=4;
+Fs=44100;
+[y,Fs]=audioread( '1.wav' );
+y1=y(1:1:end/2);
+p=audioplayer(y1,fs);
+play(p);
+t=(1:length(y1))/Fs;
+plot(0.5*t,y1, 's' ) ;
+结果分析:幅度减小,响度减小
+time=4;
+Fs=44100;
+[y,Fs]=audioread( '1.wav' );
+y1=y(1:1:end);
+p=audioplayer(y1,fs);
+play(p);
+t=(1:length(y1))/Fs;
+plot(flipud(t),y1, 's' ) ;
+结果分析：声色和音量均没有变化，内容无法确认

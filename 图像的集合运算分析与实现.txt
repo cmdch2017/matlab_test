@@ -1,0 +1,98 @@
+key：
+齐次坐标
+灰度插值
+最近邻插值
+双线性插值
+双三次插值
+13-1 利用interp2函数对图像通过各种插值法进行放大
+clear all;
+I=imread('lean.jpg');
+I2=imresize(I,0.125);
+Z1=interp2(double(I2),2,'nearest');
+Z1=uint8(Z1);
+subplot(221);imshow(Z1);
+title('最近邻插法');
+Z2=interp2(double(I2),2,'linear');
+Z2=uint8(Z2);
+subplot(222);imshow(Z2);
+title('线性邻插法');
+Z3=interp2(double(I2),2,'spline');
+Z3=uint8(Z3);
+subplot(223);imshow(Z3);
+title('三次样条法插值');
+Z4=interp2(double(I2),2,'cubic');
+Z4=uint8(Z4);
+subplot(224);imshow(Z4);
+title('立方体插值');
+
+13-2对图像实现平移操作
+function J=translation(I,a,b)
+[M,N,G]=size(I);
+I=im2double(I)；
+J=ones(M,N,G);
+for i=1:M
+   for j=1:N
+       if ((i+a)>=1&&(j+b>=1)&&(J+b<=N));
+         J(i=1,j+b,:)=I(i,j,:);
+end
+end
+end
+
+clear all;
+I=imread('lean.jpg');
+a=90;b=90;
+J1=translation(I,a,b);
+subplot(221);imshow(J1);axis on;
+title('右下平移图像');
+a=-90;b=-90;
+J2=translation(I,a,b);
+subplot(222);imshow(J2);axis on;
+title('左上平移图像');
+a=90;b=90;
+J3=translation(I,a,b);
+subplot(223);imshow(J1);axis on;
+title('右上平移图像');
+a=-90;b=90;
+J4=translation(I,a,b);
+subplot(224);imshow(J2);axis on;
+title('左下平移图像');
+
+考虑平移后超出显示区域的像素点实现图像平移
+function J=translation(I,a,b)
+[M,N,G]=size(I);
+I=im2double(I)；
+J=ones(M+abs(a),N+abs(b),G);
+for i=1:M 
+   for j=1:N
+      if (a<0 && b<0);
+J(i,j,:)=I(i,j,:);
+else if (a>0 && b>0);
+J(i+a,j+b,:)=I(i,j,:);
+else if(a>0 && b<0)
+J(i+a,j,:)=I(i,j,:);
+else 
+J(i,j+b,:)=I(i,j,:);
+end
+end
+end
+end
+end
+
+clear all;
+I=imread('lean.jpg');
+a=90;b=90;
+J1=translation_T(I,a,b);
+subplot(221);imshow(J1);axis on;
+title('右下平移图像');
+a=-90;b=-90;
+J2=translation_T(I,a,b);
+subplot(222);imshow(J2);axis on;
+title('左上平移图像');
+a=90;b=90;
+J3=translation_T(I,a,b);
+subplot(223);imshow(J1);axis on;
+title('右上平移图像');
+a=-90;b=90;
+J4=translation_T(I,a,b);
+subplot(224);imshow(J2);axis on;
+title('左下平移图像');

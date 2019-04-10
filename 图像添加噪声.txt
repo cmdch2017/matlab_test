@@ -1,0 +1,13 @@
+2图像的复原算法分析与实现
+2_1 图像复原概论
+2_2 图像的噪声 高斯噪声 瑞利噪声 伽马噪声 均匀分布噪声 指数分布噪声 脉冲噪声（椒盐）
+2-1 为图像添加不同的噪声
+I=imread('cameraman.tif');
+I=imdouble(I);
+figure;subplot(121);imshow(I);
+title('原始图像');
+subplot(122);imhist(I);
+title('原始图像的直方图');
+J=imnoise(I,'gaussian',0,0.015);
+figure;subplot(121);imshow(J);
+title('添加高斯噪声');
